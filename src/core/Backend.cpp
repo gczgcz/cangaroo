@@ -139,7 +139,7 @@ void Backend::loadDefaultSetup(MeasurementSetup &setup)
 
             MeasurementInterface *mi = new MeasurementInterface();
             mi->setCanInterface(intf);
-            mi->setBitrate(500000);
+            mi->setBitrate(1000000);
             network->addInterface(mi);
         }
     }

@@ -64,6 +64,7 @@ public:
 
 	uint8_t getByte(const uint8_t index) const;
 	void setByte(const uint8_t index, const uint8_t value);
+    uint8_t* get_data_pin() const;
 
     uint64_t extractRawSignal(uint8_t start_bit, const uint8_t length, const bool isBigEndian) const;
 

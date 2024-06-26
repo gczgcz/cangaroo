@@ -28,7 +28,7 @@
 
 MeasurementInterface::MeasurementInterface()
   : _doConfigure(true),
-    _bitrate(500000),
+    _bitrate(1000000),
     _samplePoint(875),
     _isCanFD(false),
     _fdBitrate(4000000),
@@ -49,10 +49,10 @@ bool MeasurementInterface::loadXML(Backend &backend, QDomElement &el)
 
     _doConfigure = el.attribute("configure", "0").toInt() != 0;
 
-    _bitrate = el.attribute("bitrate", "500000").toInt();
+    _bitrate = el.attribute("bitrate", "1000000").toInt();
     _samplePoint = el.attribute("sample-point", "875").toInt();
     _isCanFD = el.attribute("can-fd", "0").toInt() != 0;
-    _fdBitrate = el.attribute("bitrate-fd", "500000").toInt();
+    _fdBitrate = el.attribute("bitrate-fd", "1000000").toInt();
     _fdSamplePoint = el.attribute("sample-point-fd", "875").toInt();
 
     _isListenOnlyMode = el.attribute("listen-only", "0").toInt() != 0;

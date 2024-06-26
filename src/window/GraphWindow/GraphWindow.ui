@@ -6,15 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>870</width>
-    <height>274</height>
+    <width>1424</width>
+    <height>620</height>
    </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
@@ -25,44 +19,190 @@
   <property name="windowTitle">
    <string>Graph</string>
   </property>
-  <widget class="QChartView" name="chartView">
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>40</y>
+     <width>221</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="check_layout"/>
+  </widget>
+  <widget class="QWidget" name="chart_container" native="true">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>281</width>
-     <height>231</height>
+     <width>1121</width>
+     <height>571</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>281</width>
-     <height>231</height>
-    </size>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
+    <item>
+     <widget class="QChartView" name="chartView">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>281</width>
+        <height>231</height>
+       </size>
+      </property>
+      <property name="dragMode">
+       <enum>QGraphicsView::NoDrag</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QPushButton" name="buttonTest">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>250</y>
-     <width>75</width>
-     <height>23</height>
+     <x>1170</x>
+     <y>270</y>
+     <width>193</width>
+     <height>118</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Test</string>
-   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>采样时间</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>刷新率</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="text">
+       <string>60</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>下采样</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>ymargin</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="lineEdit_4">
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QChartView" name="graphicsView">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>30</y>
-     <width>256</width>
-     <height>192</height>
+     <x>1210</x>
+     <y>410</y>
+     <width>121</width>
+     <height>131</height>
     </rect>
    </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QPushButton" name="savedata">
+      <property name="text">
+       <string>保存数据</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="hang_on">
+      <property name="text">
+       <string>暂停</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="buttonTest">
+      <property name="text">
+       <string>当前数值</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

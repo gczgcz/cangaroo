@@ -269,6 +269,7 @@ void MainWindow::newWorkspace()
     if (askSaveBecauseWorkspaceModified() != QMessageBox::Cancel) {
         stopAndClearMeasurement();
         clearWorkspace();
+        createGraphWindow();
         createTraceWindow();
         addRawTxWidget();
         backend().setDefaultSetup();
@@ -364,6 +365,7 @@ QMainWindow *MainWindow::createGraphWindow(QString title)
     QMainWindow *mm = createTab(title);
     mm->setCentralWidget(new GraphWindow(mm, backend()));
     addLogWidget(mm);
+    addRawTxWidget(mm);
 
     return mm;
 }

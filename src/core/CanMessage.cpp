@@ -68,7 +68,10 @@ void CanMessage::cloneFrom(const CanMessage &msg)
     _timestamp = msg._timestamp;
 }
 
-
+ uint8_t* CanMessage::get_data_pin() const
+{
+    return (uint8_t*)_u8;
+}
 uint32_t CanMessage::getRawId() const {
 	return _raw_id;
 }

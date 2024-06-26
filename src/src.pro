@@ -21,11 +21,14 @@ macx:OBJECTS_DIR = ../build/o/mac
 
 
 SOURCES += main.cpp\
-    mainwindow.cpp \
+    mainwindow.cpp \ \
+    window/CANopenWindow/RawTxWindow.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += mainwindow.h \ \
+    window/CANopenWindow/RawTxWindow.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    window/CANopenWindow/RawTxWindow.ui
 
 RESOURCES = cangaroo.qrc
 
@@ -38,7 +41,7 @@ include($$PWD/window/LogWindow/LogWindow.pri)
 include($$PWD/window/GraphWindow/GraphWindow.pri)
 include($$PWD/window/CanStatusWindow/CanStatusWindow.pri)
 include($$PWD/window/RawTxWindow/RawTxWindow.pri)
-
+include($$PWD/window/CANopenWindow/CANopenWindow.pri)
 
 unix:PKGCONFIG += libnl-3.0
 unix:PKGCONFIG += libnl-route-3.0
@@ -48,3 +51,6 @@ include($$PWD/driver/CANBlastDriver/CANBlastDriver.pri)
 include($$PWD/driver/SLCANDriver/SLCANDriver.pri)
 
 win32:include($$PWD/driver/CandleApiDriver/CandleApiDriver.pri)
+
+DISTFILES += \
+    window/CANopenWindow/RawTxWindow.pri
