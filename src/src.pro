@@ -21,14 +21,11 @@ macx:OBJECTS_DIR = ../build/o/mac
 
 
 SOURCES += main.cpp\
-    mainwindow.cpp \ \
-    window/CANopenWindow/RawTxWindow.cpp
+    mainwindow.cpp
 
-HEADERS  += mainwindow.h \ \
-    window/CANopenWindow/RawTxWindow.h
+HEADERS  += mainwindow.h
 
-FORMS    += mainwindow.ui \
-    window/CANopenWindow/RawTxWindow.ui
+FORMS    += mainwindow.ui
 
 RESOURCES = cangaroo.qrc
 
@@ -52,5 +49,3 @@ include($$PWD/driver/SLCANDriver/SLCANDriver.pri)
 
 win32:include($$PWD/driver/CandleApiDriver/CandleApiDriver.pri)
 
-DISTFILES += \
-    window/CANopenWindow/RawTxWindow.pri

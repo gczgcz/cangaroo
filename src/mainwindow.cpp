@@ -36,6 +36,7 @@
 #include <window/GraphWindow/GraphWindow.h>
 #include <window/CanStatusWindow/CanStatusWindow.h>
 #include <window/RawTxWindow/RawTxWindow.h>
+#include <window/CANopenWindow/CANopenWindow.h>
 
 #include <driver/SLCANDriver/SLCANDriver.h>
 #include <driver/CANBlastDriver/CANBlasterDriver.h>
@@ -62,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionGraph_View_2, SIGNAL(triggered()), this, SLOT(addGraphWidget()));
     connect(ui->actionSetup, SIGNAL(triggered()), this, SLOT(showSetupDialog()));
     connect(ui->actionTransmit_View, SIGNAL(triggered()), this, SLOT(addRawTxWidget()));
+    connect(ui->actionCanOpen_View, SIGNAL(triggered()), this, SLOT(addCANopenWidget()));
 
     connect(ui->actionStart_Measurement, SIGNAL(triggered()), this, SLOT(startMeasurement()));
     connect(ui->actionStop_Measurement, SIGNAL(triggered()), this, SLOT(stopMeasurement()));
@@ -271,7 +273,8 @@ void MainWindow::newWorkspace()
         clearWorkspace();
         createGraphWindow();
         createTraceWindow();
-        addRawTxWidget();
+//        addRawTxWidget();
+        addCANopenWidget();
         backend().setDefaultSetup();
     }
 }
@@ -387,6 +390,15 @@ void MainWindow::addRawTxWidget(QMainWindow *parent)
     }
     QDockWidget *dock = new QDockWidget("Transmit View", parent);
     dock->setWidget(new RawTxWindow(dock, backend()));
+    parent->addDockWidget(Qt::BottomDockWidgetArea, dock);
+}
+void MainWindow::addCANopenWidget(QMainWindow *parent)
+{
+    if (!parent) {
+        parent = currentTab();
+    }
+    QDockWidget *dock = new QDockWidget("CanOpen View", parent);
+    dock->setWidget(new CANopenWindow(dock, backend()));
     parent->addDockWidget(Qt::BottomDockWidgetArea, dock);
 }
 

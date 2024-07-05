@@ -72,7 +72,7 @@
      <x>0</x>
      <y>0</y>
      <width>1500</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -101,6 +101,7 @@
      <addaction name="actionCan_Status_View"/>
      <addaction name="actionGraph_View_2"/>
      <addaction name="actionTransmit_View"/>
+     <addaction name="actionCanOpen_View"/>
     </widget>
     <addaction name="menu_New"/>
    </widget>
@@ -258,6 +259,11 @@
   <action name="actionTransmit_View">
    <property name="text">
     <string>Transmit View</string>
+   </property>
+  </action>
+  <action name="actionCanOpen_View">
+   <property name="text">
+    <string>CanOpen View</string>
    </property>
   </action>
  </widget>

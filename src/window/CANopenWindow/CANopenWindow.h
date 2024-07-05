@@ -26,22 +26,23 @@
 #include <core/MeasurementSetup.h>
 
 namespace Ui {
-class RawTxWindow;
+class CANopenWindow;
 }
 
 class QDomDocument;
 class QDomElement;
 
-class RawTxWindow : public ConfigurableWidget
+class CANopenWindow : public ConfigurableWidget
 {
     Q_OBJECT
 
 public:
-    explicit RawTxWindow(QWidget *parent, Backend &backend);
-    ~RawTxWindow();
+    explicit CANopenWindow(QWidget *parent, Backend &backend);
+    ~CANopenWindow();
 
     virtual bool saveXML(Backend &backend, QDomDocument &xml, QDomElement &root);
     virtual bool loadXML(Backend &backend, QDomElement &el);
+    Backend * backend() const;
 
 private slots:
     void changeDLC();
@@ -51,13 +52,37 @@ private slots:
     void disableTxWindow(int disable);
     void refreshInterfaces();
     void sendRawMessage();
+    void repeatMessage();
+    void beforeAppend(int num_messages);
 
+
+
+    void on_PDOSendButton1_clicked();
+
+    void on_PDOSendButton2_clicked();
+
+    void on_PDOSendButton3_clicked();
+
+    void on_PDOSendButton4_clicked();
+
+    void on_SDOReadButton_clicked();
+
+    void on_SDOWriteButton_clicked();
+
+    void on_repeatWrite_clicked(bool checked);
+
+    void on_repeatRead_clicked(bool checked);
 
 private:
-    Ui::RawTxWindow *ui;
+    Ui::CANopenWindow *ui;
     Backend &_backend;
     QTimer *repeatmsg_timer;
+    uint8_t reading_flag=0,writtingflag=0,STD_SDO=0,repeat_status=0;
+    QList<uint8_t> SDO_data;
     void hideFDFields();
     void showFDFields();
+    void readCallback(const CanMessage *msg);
+    void WriteCallback(const CanMessage * msg);
+    void sendPDOMessage(int index);
 
 };

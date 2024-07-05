@@ -1813,6 +1813,19 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QCheckBox" name="checkbox_FD_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>151</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>FD</string>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>comboBoxInterface</tabstop>
